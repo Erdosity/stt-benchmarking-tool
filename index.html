@@ -1,0 +1,108 @@
+<!doctype html>
+<html ng-app>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <title>Erdosity Speech-to-Text Cognitive Services Benchmarking Calculator</title>
+
+        <link rel="stylesheet" href="stylesheets/styles.css">
+        <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="wrapper">
+            <header>
+                <h1>Erdosity Call/Contact Center Speech-to-Text Transcription Benchmarking Calculator</h1>
+                <p>An app for comparing Total Cost of Deployment of Speech-to-Text (STT) Services across cloud services including human costs</p>
+
+                <h3>Assumptions</h3>
+                <p>
+                    <ol>
+                        <li>ASSUMPTION 1</li><br/>
+                        <li>ASSUMPTION 2</li><br/>
+                        <li>ASSUMPTION 3</li><br/>
+                        <li>ASSUMPTION 4</li><br/>
+                    </ol>
+                </p>
+            </header>
+
+            <section ng-controller="STTCalculatorCtrl">
+                <h3>Welcome to the Erdosity Speech-to-Text Cognitive Services Benchmarking Calculator.</h3>
+
+                <p>
+                    This is an app that helps you estimate the compare and contrast costs of <a href="http://erdosity.ai/stt/">STT Cloud Services</a>. It is not endorsed by <a href="http://aws.amazon.com">Amazon AWS</a>, nor by <a href="https://cloud.google.com">Google Cloud Platform</a>, nor by <a href="http://www.ibm.com/cloud">IBM Cloud/Watson</a>, nor by <a href="http://azure.microsoft.com">Microsoft Azure/Cognitive Services</a>. Please refer to the <a href="http://erdosity.ai/stt/faqs/">Erdosity STT Benchmarking Calculator FAQ</a>. 
+                </p>
+                <p>
+                If you have questions/comments, please let us know at <a href="https://twitter.com/erdosity">@erdosity</a> or our <a href="mailto:info@erdosity.ai">email</a>. Thanks!
+                </p>
+
+                <h3>Volumetrics</h3>
+                <p>
+                    <label>Average length of call (mins)</label>
+                    <input type="text" ng-model="avgCallLength" ng-change="calculate()"/><br/>
+                    <label>Volume of calls</label>
+                    <input type="text" ng-model="totalCallVolume" ng-change="calculate()"/><br/>
+                <p>
+                <h3>Call Clarity</h3>
+                <p>
+                    <input type="radio" ng-model="callClarity" value="average" ng-change="calculate()"/>Average
+                    <input type="radio" ng-model="callClarity" value="noisy" ng-change="calculate()"/>Noisy
+                </p>
+                <h3>Regional Dialects</h3>
+                <p>
+                    <input type="radio" ng-model="regionalDialects" value="minimal" ng-change="calculate()"/>Minimal
+                    <input type="radio" ng-model="regionalDialects" value="high" ng-change="calculate()"/>High
+                </p>
+                <h3>Audio Channel</h3>
+                <p>
+                    <input type="radio" ng-model="audioChannel" value="mono" ng-change="calculate()"/>Mono Channel
+                    <input type="radio" ng-model="audioChannel" value="dual" ng-change="calculate()"/>Dual Channel
+                </p>
+                <h3>Business Objective</h3>
+                <p>
+                    <label>Desired Accuracy (1%-100%)</label>
+                    <input type="text" ng-model="desiredAccuracy" ng-change="calculate()"/><br/>
+                    <label>Decipher Personal Information</label>
+                    <input type="radio" ng-model="callAuthentication" value="unimportant" ng-change="calculate()"/>Unimportant
+                    <input type="radio" ng-model="callAuthentication" value="important" ng-change="calculate()"/>Important
+                </p>
+                <h3>Improve Quality</h3>
+                <p>
+                    <label>Human Labor Price (US$/hour)</label>
+                    <input type="text" ng-model="humanLaborPrice" ng-change="calculate()"/>
+                </p>
+
+                <h2>Estimated cost for Call Center Transcription</h2>
+                <p>
+                    <label>Amazon AWS</label>{{ awsTranscriptionCost | currency }}<br/>
+                    <label>Microsoft Azure</label>{{ azureTranscriptionCost | currency }}<br/>
+                    <label>Google Cloud</label>{{ googleTranscriptionCost | currency }}<br/>
+                    <label>IBM/Watson Cloud</label>{{ ibmTranscriptionCost | currency }}<br/>
+                    <span class="manual-cost">
+                        <label>100% Manual Transcription</label>{{ manualTranscriptionCost | currency }}<br/>
+                    </span>
+                </p>
+            </section>
+        </div>
+        <script src="javascripts/scale.fix.js"></script>
+        <script src="javascripts/angular-1.0.1.min.js"></script>
+        <script src="javascripts/main.js"></script>
+        <script type="text/javascript">
+            /**
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-267455468-2']);
+            _gaq.push(['_setDomainName', 'erdosity.ai']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+            **/
+        </script>
+    </body>
+</html>
