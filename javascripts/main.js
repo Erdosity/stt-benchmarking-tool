@@ -20,7 +20,11 @@ function STTCalculatorCtrl($scope) {
         $scope.googleTranscriptionCost = sttCalculator.googleTranscriptionCost($scope);
         $scope.ibmTranscriptionCost = sttCalculator.ibmTranscriptionCost($scope);
         $scope.manualTranscriptionCost = sttCalculator.manualTranscriptionCost($scope);
-    };
+      };
+
+      $scope.init = function() {
+            $scope.calculate();
+      };
 }
 
 // l - avgCallLength
