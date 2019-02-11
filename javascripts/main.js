@@ -5,12 +5,12 @@ function STTCalculatorCtrl($scope) {
       // set default values when the page first loads
       $scope.avgCallLength = "5";
       $scope.totalCallVolume = "1000000";
-      $scope.callClarity = "average"
-      $scope.regionalDialects = "minimal"
-      $scope.audioChannel = "dual"
-      $scope.desiredAccuracy = "70"
-      $scope.callAuthentication = "unimportant"
-      $scope.humanLaborPrice = "15"
+      $scope.callClarity = "average";
+      $scope.regionalDialects = "minimal";
+      $scope.audioChannel = "dual";
+      $scope.desiredAccuracy = "70";
+      $scope.callAuthentication = "unimportant";
+      $scope.humanLaborPrice = "15";
 
       $scope.calculate = function() {
         console.log("inside calculate function");
