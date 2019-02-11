@@ -42,37 +42,37 @@
                 <h3>Volumetrics</h3>
                 <p>
                     <label>Average length of call (mins)</label>
-                    <input type="text" ng-model="avgCallLength" ng-change="calculate()"/><br/>
+                    <input type="text" ng-model="avgCallLength" ng-change="calculate()" data-hj-whitelist/><br/>
                     <label>Volume of calls</label>
-                    <input type="text" ng-model="totalCallVolume" ng-change="calculate()"/><br/>
+                    <input type="text" ng-model="totalCallVolume" ng-change="calculate()" data-hj-whitelist/><br/>
                 <p>
                 <h3>Call Clarity</h3>
                 <p>
-                    <input type="radio" ng-model="callClarity" value="average" ng-change="calculate()"/>Average
-                    <input type="radio" ng-model="callClarity" value="noisy" ng-change="calculate()"/>Noisy
+                    <input type="radio" ng-model="callClarity" value="average" ng-change="calculate()" data-hj-whitelist/>Average
+                    <input type="radio" ng-model="callClarity" value="noisy" ng-change="calculate()" data-hj-whitelist/>Noisy
                 </p>
                 <h3>Regional Dialects</h3>
                 <p>
-                    <input type="radio" ng-model="regionalDialects" value="minimal" ng-change="calculate()"/>Minimal
-                    <input type="radio" ng-model="regionalDialects" value="high" ng-change="calculate()"/>High
+                    <input type="radio" ng-model="regionalDialects" value="minimal" ng-change="calculate()" data-hj-whitelist/>Minimal
+                    <input type="radio" ng-model="regionalDialects" value="high" ng-change="calculate()" data-hj-whitelist/>High
                 </p>
                 <h3>Audio Channel</h3>
                 <p>
-                    <input type="radio" ng-model="audioChannel" value="mono" ng-change="calculate()"/>Mono Channel
-                    <input type="radio" ng-model="audioChannel" value="dual" ng-change="calculate()"/>Dual Channel
+                    <input type="radio" ng-model="audioChannel" value="mono" ng-change="calculate()" data-hj-whitelist/>Mono Channel
+                    <input type="radio" ng-model="audioChannel" value="dual" ng-change="calculate()" data-hj-whitelist/>Dual Channel
                 </p>
                 <h3>Business Objective</h3>
                 <p>
                     <label>Desired Accuracy (1%-100%)</label>
-                    <input type="text" ng-model="desiredAccuracy" value="70" ng-change="calculate()"/><br/>
+                    <input type="text" ng-model="desiredAccuracy" value="70" ng-change="calculate()" data-hj-whitelist/><br/>
                     <label>Decipher Personal Information</label>
-                    <input type="radio" ng-model="callAuthentication" value="unimportant" ng-change="calculate()"/>Unimportant
-                    <input type="radio" ng-model="callAuthentication" value="important" ng-change="calculate()"/>Important
+                    <input type="radio" ng-model="callAuthentication" value="unimportant" ng-change="calculate()" data-hj-whitelist/>Unimportant
+                    <input type="radio" ng-model="callAuthentication" value="important" ng-change="calculate()" data-hj-whitelist/>Important
                 </p>
                 <h3>Improve Quality</h3>
                 <p>
                     <label>Human Labor Price (US$/hour)</label>
-                    <input type="text" ng-model="humanLaborPrice" ng-change="calculate()"/>
+                    <input type="text" ng-model="humanLaborPrice" ng-change="calculate()" data-hj-whitelist/>
                 </p>
 
                 <h2>Estimated cost for Call Center Transcription</h2>
