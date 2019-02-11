@@ -25,6 +25,8 @@ function STTCalculatorCtrl($scope) {
       $scope.init = function() {
             $scope.calculate();
       };
+      
+      $scope.init();
 }
 
 // l - avgCallLength
