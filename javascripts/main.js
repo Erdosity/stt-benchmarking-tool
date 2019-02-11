@@ -11,7 +11,7 @@ function STTCalculatorCtrl($scope) {
       $scope.desiredAccuracy = "70";
       $scope.callAuthentication = "unimportant";
       $scope.humanLaborPrice = "15";
-      $scope.calculate();
+      //$scope.calculate();
 
       $scope.calculate = function() {
         console.log("inside calculate function");
