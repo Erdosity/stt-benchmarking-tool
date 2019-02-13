@@ -198,7 +198,16 @@ var sttCalculator = (function() {
         // API COST: (IF 250000 < avgCallLength * totalCallVolume < 500001) THEN (250000 * .02 + (avgCallLength * totalCallVolume - 250000) * .015)
         // API COST: (IF 500000 < avgCallLength * totalCallVolume < 1000001) THEN (250000 * .02 + 250000 * .015 + (avgCallLength * totalCallVolume - 500001)*.0125)
         
+        console.log("convertAvgCallLength = " + convertAvgCallLength(scope));
+        console.log("convertTotalCallVolume = " +  convertTotalCallVolume(scope));
+        console.log("convertDesiredAccuracy = " + convertDesiredAccuracy(scope));
+        console.log("decodeCallClarity = " + decodeCallClarity(scope));
+        console.log("decodeAudioChannel = " + decodeAudioChannel(scope));
+        console.log("decodeRegionalDialects = " + decodeRegionalDialects(scope));
+        console.log("convertHumanLaborPrice = " + convertHumanLaborPrice(scope));
+          
         var laborCost = ((5.4139 * Math.log(convertAvgCallLength(scope)) + 2.935) * convertTotalCallVolume(scope) *(convertDesiredAccuracy(scope) - (.835 - (decodeCallClarity(scope) * .02) + (decodeAudioChannel(scope) * .0478) - (decodeRegionalDialects(scope) * .234))) * .01) / 60 * convertHumanLaborPrice(scope);
+        console.log("laborCost = " + laborCost);
         if (laborCost <= 0) {
               // then ignore human cost
               laborCost = ((5.4139 * Math.log(convertAvgCallLength(scope)) + 2.935) * convertTotalCallVolume(scope) *(convertDesiredAccuracy(scope) - (.835 - (decodeCallClarity(scope) * .02) + (decodeAudioChannel(scope) * .0478) - (decodeRegionalDialects(scope) * .234))) * .01) / 60;
