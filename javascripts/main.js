@@ -209,7 +209,7 @@ var sttCalculator = (function() {
         if (laborCost < 0) {
               // then ignore human cost
               laborCost = 0;
-              # laborCost = ((5.4139 * Math.log(convertAvgCallLength(scope)) + 2.935) * convertTotalCallVolume(scope) *(convertDesiredAccuracy(scope) - (.835 - (decodeCallClarity(scope) * .02) + (decodeAudioChannel(scope) * .0478) - (decodeRegionalDialects(scope) * .234))) * .1) / 60;
+              // laborCost = ((5.4139 * Math.log(convertAvgCallLength(scope)) + 2.935) * convertTotalCallVolume(scope) *(convertDesiredAccuracy(scope) - (.835 - (decodeCallClarity(scope) * .02) + (decodeAudioChannel(scope) * .0478) - (decodeRegionalDialects(scope) * .234))) * .1) / 60;
         }
         console.log("After IBM laborCost = " + laborCost);
 
