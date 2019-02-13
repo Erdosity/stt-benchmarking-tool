@@ -162,6 +162,7 @@ var sttCalculator = (function() {
         }
         console.log("AWS laborCost = " + laborCost);
         var apiCost = convertAvgCallLength(scope) * convertTotalCallVolume(scope) * .024;
+        console.log("AWS apiCost = " + apiCost);
         
         return laborCost + apiCost;
     };
@@ -183,6 +184,7 @@ var sttCalculator = (function() {
         }
         console.log("Google laborCost = " + laborCost);
         var apiCost = convertAvgCallLength(scope) * convertTotalCallVolume(scope) * .024;
+        console.log("Google apiCost = " + apiCost);
         
         return laborCost + apiCost;
     };
@@ -214,6 +216,7 @@ var sttCalculator = (function() {
             apiCost = 250000 * .02 + (convertAvgCallLength(scope) * convertTotalCallVolume(scope) - 250000) * .015;
         else if ((convertAvgCallLength(scope) * convertTotalCallVolume(scope)) > 500000)
             apiCost = 250000 * .02 + 250000 * .015 + (convertAvgCallLength(scope) * convertTotalCallVolume(scope) - 500001)*.0125;
+        console.log("IBM apiCost = " + apiCost);
         
         return laborCost + apiCost;
     };
@@ -235,6 +238,7 @@ var sttCalculator = (function() {
         }
         console.log("Azure laborCost = " + laborCost);
         var apiCost = convertAvgCallLength(scope) * convertTotalCallVolume(scope) / 60;
+        console.log("Azure apiCost = " + apiCost);
         
         return laborCost + apiCost;
     };
