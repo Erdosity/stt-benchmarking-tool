@@ -203,11 +203,12 @@ var sttCalculator = (function() {
         // API COST: (IF 500000 < avgCallLength * totalCallVolume < 1000001) THEN (250000 * .02 + 250000 * .015 + (avgCallLength * totalCallVolume - 500001)*.0125)
         
         var laborCost = ((5.4139 * Math.log(convertAvgCallLength(scope)) + 2.935) * convertTotalCallVolume(scope) *(convertDesiredAccuracy(scope) - (.835 - (decodeCallClarity(scope) * .02) + (decodeAudioChannel(scope) * .0478) - (decodeRegionalDialects(scope) * .234))) * .1) / 60 * convertHumanLaborPrice(scope);
+        console.log("Before IBM laborCost = " + laborCost);
         if (laborCost <= 0) {
               // then ignore human cost
               laborCost = ((5.4139 * Math.log(convertAvgCallLength(scope)) + 2.935) * convertTotalCallVolume(scope) *(convertDesiredAccuracy(scope) - (.835 - (decodeCallClarity(scope) * .02) + (decodeAudioChannel(scope) * .0478) - (decodeRegionalDialects(scope) * .234))) * .1) / 60;
         }
-        console.log("IBM laborCost = " + laborCost);
+        console.log("After IBM laborCost = " + laborCost);
 
         var apiCost = 0;
         if (convertAvgCallLength(scope) * convertTotalCallVolume(scope) < 250001)
