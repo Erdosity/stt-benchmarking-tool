@@ -175,10 +175,10 @@ var sttCalculator = (function() {
     cost.googleTranscriptionCost = function(scope) {
         // LABOR COST: ((5.4139 * Math.log(avgCallLength) + 2.935) * totalCallVolume *.01 * (desiredAccuracy - (0.765 - (callClarity * .0256) + (audioChannel * .170) - (regionalDialects * .203)))) / 60 * humanLaborPrice + avgCallLength * totalCallVolume *.024
         // API COST: avgCallLength * totalCallVolume * .024
-        var laborCost = ((5.4139 * Math.log(convertAvgCallLength(scope)) + 2.935) * convertTotalCallVolume(scope) *.01 * (convertDesiredAccuracy(scope) - (0.765 - (decodeCallClarity(scope) * .0256) + (decodeAudioChannel(scope) * .170) - (decodeRegionalDialects(scope) * .203)))) / 60 * convertHumanLaborPrice(scope) + convertAvgCallLength(scope) * convertTotalCallVolume(scope) * .024;
+        var laborCost = ((5.4139 * Math.log(convertAvgCallLength(scope)) + 2.935) * convertTotalCallVolume(scope) *.1 * (convertDesiredAccuracy(scope) - (0.765 - (decodeCallClarity(scope) * .0256) + (decodeAudioChannel(scope) * .170) - (decodeRegionalDialects(scope) * .203)))) / 60 * convertHumanLaborPrice(scope);
         if (laborCost <= 0) {
               // then ignore human cost
-              laborCost = ((5.4139 * Math.log(convertAvgCallLength(scope)) + 2.935) * convertTotalCallVolume(scope) *.01 * (convertDesiredAccuracy(scope) - (0.765 - (decodeCallClarity(scope) * .0256) + (decodeAudioChannel(scope) * .170) - (decodeRegionalDialects(scope) * .203)))) / 60 + convertAvgCallLength(scope) * convertTotalCallVolume(scope) * .024;
+              laborCost = ((5.4139 * Math.log(convertAvgCallLength(scope)) + 2.935) * convertTotalCallVolume(scope) *.1 * (convertDesiredAccuracy(scope) - (0.765 - (decodeCallClarity(scope) * .0256) + (decodeAudioChannel(scope) * .170) - (decodeRegionalDialects(scope) * .203)))) / 60;
         }
         var apiCost = convertAvgCallLength(scope) * convertTotalCallVolume(scope) * .024;
         
@@ -206,11 +206,11 @@ var sttCalculator = (function() {
         console.log("decodeRegionalDialects = " + decodeRegionalDialects(scope));
         console.log("convertHumanLaborPrice = " + convertHumanLaborPrice(scope));
           
-        var laborCost = ((5.4139 * Math.log(convertAvgCallLength(scope)) + 2.935) * convertTotalCallVolume(scope) *(convertDesiredAccuracy(scope) - (.835 - (decodeCallClarity(scope) * .02) + (decodeAudioChannel(scope) * .0478) - (decodeRegionalDialects(scope) * .234))) * .01) / 60 * convertHumanLaborPrice(scope);
+        var laborCost = ((5.4139 * Math.log(convertAvgCallLength(scope)) + 2.935) * convertTotalCallVolume(scope) *(convertDesiredAccuracy(scope) - (.835 - (decodeCallClarity(scope) * .02) + (decodeAudioChannel(scope) * .0478) - (decodeRegionalDialects(scope) * .234))) * .1) / 60 * convertHumanLaborPrice(scope);
         console.log("laborCost = " + laborCost);
         if (laborCost <= 0) {
               // then ignore human cost
-              laborCost = ((5.4139 * Math.log(convertAvgCallLength(scope)) + 2.935) * convertTotalCallVolume(scope) *(convertDesiredAccuracy(scope) - (.835 - (decodeCallClarity(scope) * .02) + (decodeAudioChannel(scope) * .0478) - (decodeRegionalDialects(scope) * .234))) * .01) / 60;
+              laborCost = ((5.4139 * Math.log(convertAvgCallLength(scope)) + 2.935) * convertTotalCallVolume(scope) *(convertDesiredAccuracy(scope) - (.835 - (decodeCallClarity(scope) * .02) + (decodeAudioChannel(scope) * .0478) - (decodeRegionalDialects(scope) * .234))) * .1) / 60;
         }
 
         var apiCost = 0;
