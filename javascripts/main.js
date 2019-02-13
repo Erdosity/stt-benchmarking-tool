@@ -80,8 +80,8 @@ var sttCalculator = (function() {
     */
     function decodeAudioChannel(scope) {
         switch (scope.audioChannel) {
-            case 'mono': return 0;
-            case 'dual': return 1;
+            case 'mono': return 1;
+            case 'dual': return 0;
         }
     }
 
